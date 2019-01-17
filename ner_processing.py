@@ -23,7 +23,7 @@ def EntityTagger(gazateer, documents):
 
 	# Delete dictionary entries that are empty
 	for key in tagged.copy().keys():
-		if tagged[key] == []:
+		if not tagged[key]:
 			del tagged[key]
 		else:
 			cleankey = cleantext(key)
