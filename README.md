@@ -3,7 +3,6 @@
 
 ```python
 from DIYNER.model import CRFNER
-import pandas as pd
 
 # Gazateer = {'entity': 'category'}
 # Documents = ['doc1','doc2','doc3']
