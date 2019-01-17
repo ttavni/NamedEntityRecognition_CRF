@@ -3,6 +3,7 @@ import nltk
 import pandas as pd
 import crf_processing
 from sklearn_crfsuite import CRF
+from sklearn_crfsuite import metrics
 
 class CRF_NER(object):
 
@@ -46,5 +47,15 @@ class CRF_NER(object):
 
 		self.X = [crf_processing.sent2features(s) for s in sentences]
 		return self.model.predict(self.X)
+
+	def report(self):
+		labels = list(self.model.classes_)
+
+		y_pred = self.model.predict(self.X_test)
+		print('F1 score {}'.format(metrics.flat_f1_score(self.y_test, y_pred,average='weighted', labels=labels)))
+
+		sorted_labels = sorted(labels,key=lambda name: (name[1:], name[0]))
+		print(metrics.flat_classification_report(self.y_test, y_pred, labels=sorted_labels, digits=3))
+
 
 

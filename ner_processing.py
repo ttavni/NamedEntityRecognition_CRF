@@ -17,7 +17,7 @@ def EntityTagger(gazateer, documents):
 
 	for sentence in sentences:
 		tagged[sentence] = []
-		for ent, value in gazateer.items():
+		for value, ent in gazateer.items():
 			if value.lower() in sentence.lower():
 				tagged[sentence].append(value)
 
@@ -55,7 +55,7 @@ def NERFormatter(gazateer, documents):
 
 	data = pd.DataFrame(results).T
 	data = (data.set_index(data.index).apply(lambda x: x.apply(pd.Series).stack()).reset_index().drop('level_1', 1))
-	data['category'] = data['entity'].map({v: k for k, v in gazateer.items()})
+	data['category'] = data['entity'].map({v: k for v, k in gazateer.items()})
 	data.fillna('0', inplace=True)
 	data.drop('level_0', inplace=True, axis=1)
 
