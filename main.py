@@ -13,4 +13,4 @@ ner_crf = CRFNER(gazetteer)
 ner_crf.train(documents)
 
 # Predictions
-ner_crf.predict('Peter is looking to work for Google in Ireland where the Government is banning iphones')
+ner_crf.predict('Google are opening new stores in Vancouver')
