@@ -1,6 +1,6 @@
 import nltk
 import pandas as pd
-from cleaning import cleantext
+from DIYNER.cleaning import cleantext
 import itertools
 import random
 

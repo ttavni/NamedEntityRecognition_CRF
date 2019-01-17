@@ -1,4 +1,4 @@
-from DIYNER.CRF_NER import CRF_NER
+from DIYNER.model import CRFNER
 import pandas as pd
 
 # Create Gazateer
@@ -9,7 +9,7 @@ gazetteer = dict(zip(gazetteer['entities'].tolist(), gazetteer['categories'].tol
 documents = [str(x) for x in pd.read_csv('data/techCorpus.csv')['text'].tolist()][0:5]
 
 # Training Model
-ner_crf = CRF_NER(gazetteer)
+ner_crf = CRFNER(gazetteer)
 ner_crf.train(documents)
 
 # Predictions
