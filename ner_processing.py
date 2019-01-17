@@ -6,7 +6,7 @@ import random
 
 def EntityTagger(gazateer, documents):
 
-	""" Create matches between gazateer and documents """
+	""" Create matches between gazetteer and documents """
 
 	# Split input text into individual sentences and remove single words/empty sentences
 	sentences = [nltk.sent_tokenize(txt) for txt in documents]
@@ -31,11 +31,11 @@ def EntityTagger(gazateer, documents):
 
 	return tagged
 
-def NERFormatter(gazateer, documents):
+def NERFormatter(gazetteer, documents):
 
 	""" Structure training data """
 
-	tagged = EntityTagger(gazateer,documents)
+	tagged = EntityTagger(gazetteer, documents)
 	sentence_no = 0
 	results = {}
 
@@ -55,7 +55,7 @@ def NERFormatter(gazateer, documents):
 
 	data = pd.DataFrame(results).T
 	data = (data.set_index(data.index).apply(lambda x: x.apply(pd.Series).stack()).reset_index().drop('level_1', 1))
-	data['category'] = data['entity'].map({v: k for v, k in gazateer.items()})
+	data['category'] = data['entity'].map({v: k for v, k in gazetteer.items()})
 	data.fillna('0', inplace=True)
 	data.drop('level_0', inplace=True, axis=1)
 

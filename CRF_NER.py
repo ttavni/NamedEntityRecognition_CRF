@@ -9,8 +9,8 @@ class CRF_NER(object):
 
 	""" A class to get reviews for products on Amazon """
 
-	def __init__(self,gazateer,fraction=0.7):
-		self.gazateer = gazateer
+	def __init__(self, gazetteer, fraction=0.7):
+		self.gazateer = gazetteer
 		self.fraction = fraction
 
 	def train(self, documents):
