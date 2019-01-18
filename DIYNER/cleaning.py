@@ -1,8 +1,5 @@
 import re
 
-import re
-
-
 def find_urls(text):
 	"""Find all mentioned urls in a piece of text"""
 
