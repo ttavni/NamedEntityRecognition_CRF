@@ -1,5 +1,5 @@
 # Named Entity Recognition using Conditional Random Fields
-##### Created by Peter Simkin (DolphinDance) & Tim Avni (tavni96)
+##### Created by Peter Simkin (Psimkin) & Tim Avni (tavni96)
 
 ```python
 from DIYNER.model import CRFNER
